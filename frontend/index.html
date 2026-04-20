@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BIDBLAZE | Enterprise OS (War Room)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;800;900&display=swap');
+        body { background: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .glass { background: rgba(15, 23, 42, 0.95); border: 1px solid #1e293b; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); }
+        .panel-header { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 12px; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .custom-scroll::-webkit-scrollbar { width: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <nav class="p-3 border-b border-slate-800 flex justify-between items-center bg-slate-950 z-20 sticky top-0 shadow-lg shrink-0">
+        <div class="flex items-center gap-4">
+            <h1 class="text-xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">BIDBLAZE<span class="text-slate-100">_OS</span></h1>
+            <span class="text-[10px] font-bold bg-slate-800 text-emerald-400 px-2 py-0.5 rounded border border-emerald-700/50">VERSION 13.0 / CACHE OVERRIDE</span>
+        </div>
+        <button onclick="endAuction()" id="reset-btn" class="hidden text-[10px] font-bold text-red-500 border border-red-900/50 px-3 py-1.5 rounded hover:bg-red-900/30 transition-all">ABORT SESSION</button>
+    </nav>
+
+    <div id="setup-screen" class="flex-grow flex items-center justify-center p-6">
+        <div class="glass p-10 rounded-2xl w-full max-w-lg border-t-4 border-t-emerald-500 shadow-2xl shadow-emerald-900/20">
+            <h2 class="text-3xl font-black mb-6 text-center tracking-tight">System Initialization</h2>
+            <div class="space-y-5">
+                <div>
+                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Franchise Override</label>
+                    <select id="s-team" class="w-full bg-slate-900 border border-slate-700 p-3 rounded text-emerald-400 font-bold mt-1 outline-none">
+                        <option value="MI">MI</option><option value="CSK">CSK</option><option value="RCB">RCB</option><option value="KKR">KKR</option><option value="SRH">SRH</option><option value="DC">DC</option><option value="RR">RR</option><option value="PBKS">PBKS</option><option value="GT">GT</option><option value="LSG">LSG</option><option value="Deccan">Deccan</option><option value="RPS">RPS</option><option value="GL">GL</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-4 gap-3">
+                    <div><label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Purse</label><input id="s-budget" type="number" value="100" class="w-full bg-slate-900 border border-slate-700 p-2 rounded font-mono text-sm mt-1 outline-none"></div>
+                    <div><label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Squad</label><input id="s-size" type="number" value="14" class="w-full bg-slate-900 border border-slate-700 p-2 rounded font-mono text-sm mt-1 outline-none"></div>
+                    <div><label class="text-[10px] font-bold text-amber-500 uppercase tracking-widest">Max OS</label><input id="s-os" type="number" value="4" class="w-full bg-slate-900 border border-slate-700 p-2 rounded font-mono text-sm mt-1 text-amber-400 outline-none"></div>
+                    <div><label class="text-[10px] font-bold text-sky-400 uppercase tracking-widest">Max RTM</label><input id="s-rtm" type="number" value="3" class="w-full bg-slate-900 border border-slate-700 p-2 rounded font-mono text-sm mt-1 text-sky-400 outline-none"></div>
+                </div>
+                <button onclick="startAuction()" class="w-full bg-gradient-to-r from-emerald-600 to-emerald-400 hover:from-emerald-500 hover:to-emerald-300 text-slate-950 font-black py-4 rounded shadow-lg shadow-emerald-900/50 transition-all mt-4 text-sm tracking-widest uppercase">BOOT SEQUENCE</button>
+            </div>
+        </div>
+    </div>
+
+    <main id="dashboard-screen" class="hidden flex-grow grid grid-cols-1 xl:grid-cols-12 gap-6 p-6">
+        <aside class="col-span-1 xl:col-span-3 flex flex-col gap-3 h-[85vh]">
+            <div class="glass p-3 rounded-xl border-t-2 border-t-emerald-500 shrink-0">
+                <div class="panel-header text-emerald-500 mb-2">Execute Purchase</div>
+                <input id="b-player" type="text" placeholder="PLAYER NAME" class="w-full bg-slate-900 p-2 rounded text-xs uppercase border border-slate-700 mb-2 outline-none">
+                <div class="grid grid-cols-2 gap-2 mb-2">
+                    <select id="b-team" class="bg-slate-900 p-2 rounded text-xs border border-slate-700 font-bold outline-none">
+                        <option value="MI">MI</option><option value="CSK">CSK</option><option value="RCB">RCB</option><option value="KKR">KKR</option><option value="SRH">SRH</option><option value="DC">DC</option><option value="RR">RR</option><option value="PBKS">PBKS</option><option value="GT">GT</option><option value="LSG">LSG</option><option value="Deccan">Deccan</option><option value="RPS">RPS</option><option value="GL">GL</option>
+                    </select>
+                    <input id="b-price" type="number" step="0.25" placeholder="₹ CR" class="bg-slate-900 p-2 rounded text-xs border border-slate-700 mono outline-none">
+                </div>
+                <button onclick="submitBid()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-2 rounded font-black text-xs transition-all tracking-widest uppercase shadow-lg shadow-emerald-900/20">CONFIRM BID</button>
+            </div>
+            <div id="my-hq" class="glass p-3 rounded-xl shrink-0 border-t-2 border-t-emerald-500"></div>
+            <div class="glass p-4 rounded-xl flex-grow flex flex-col overflow-hidden border-t-2 border-t-sky-500">
+                <div class="panel-header text-sky-400">Strict Top 7 Target List</div>
+                <div id="strategy-list" class="flex-grow overflow-y-auto custom-scroll pr-2 space-y-2"></div>
+            </div>
+        </aside>
+
+        <section class="col-span-1 xl:col-span-6 flex flex-col h-[85vh]">
+            <div class="panel-header text-slate-400 ml-1">Live Leaderboard & Global Target Radar</div>
+            <div id="rivals-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 overflow-y-auto custom-scroll pr-2 pb-6"></div>
+        </section>
+
+        <aside class="col-span-1 xl:col-span-3 flex flex-col gap-4 h-[85vh]">
+            <div class="glass p-5 rounded-xl border-t-2 border-t-amber-500 shrink-0">
+                <div class="panel-header text-amber-500">Live Neural Valuation</div>
+                <div class="flex gap-2 mb-3">
+                    <input id="analyst-input" type="text" placeholder="PLAYER NAME..." class="w-full bg-slate-900 p-2 rounded text-xs uppercase border border-slate-700 outline-none">
+                    <button onclick="runLocalAnalyst()" class="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded text-[10px] font-black tracking-widest uppercase shadow-lg">SCAN</button>
+                </div>
+                <div id="analyst-report" class="hidden bg-slate-900 border border-slate-700 p-4 rounded-lg">
+                    <div class="flex justify-between items-center mb-2">
+                        <span id="ar-name" class="font-bold text-white text-xs truncate"></span>
+                        <span id="ar-verdict" class="text-[9px] font-black px-2 py-1 rounded tracking-wider bg-slate-800 text-white uppercase"></span>
+                    </div>
+                    <div class="text-amber-400 font-mono font-bold mb-2 text-2xl border-b border-slate-800 pb-2">₹<span id="ar-price">0</span>Cr Limit</div>
+                    <div id="ar-reason" class="text-[10px] text-slate-400 italic leading-relaxed"></div>
+                </div>
+            </div>
+
+            <div class="glass p-5 rounded-xl flex-grow flex flex-col overflow-hidden border-t-2 border-t-purple-500">
+                <div class="panel-header text-purple-400">Market Intelligence</div>
+                <div class="space-y-6 overflow-y-auto custom-scroll pr-2">
+                    <div><h4 class="text-[10px] text-emerald-500 font-bold uppercase mb-2 tracking-widest">Market Leaders</h4><div id="ai-rich" class="text-xs mono space-y-2 text-slate-400"></div></div>
+                    <div><h4 class="text-[10px] text-red-400 font-bold uppercase mb-2 tracking-widest">Desperate Purses</h4><div id="ai-broke" class="text-xs mono space-y-2 text-slate-400"></div></div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <div id="team-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 backdrop-blur-md p-6">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-6xl rounded-2xl p-8 relative flex flex-col max-h-[95vh] shadow-2xl shadow-sky-900/20">
+            <button onclick="closeModal()" class="absolute top-4 right-5 text-slate-500 hover:text-white font-bold text-3xl transition-colors">&times;</button>
+            <div class="flex justify-between items-end mb-6 border-b border-slate-800 pb-6">
+                <div>
+                    <div class="text-[10px] text-sky-400 uppercase tracking-widest font-black mb-1">Franchise Strategy Dossier</div>
+                    <h2 id="modal-title" class="text-4xl font-black text-white tracking-tighter uppercase">TEAM_NAME</h2>
+                </div>
+                <div class="flex gap-3">
+                    <div class="flex flex-col text-right"><span class="text-[8px] text-slate-500 uppercase font-bold">Purse Status</span><span class="text-emerald-400 font-mono text-lg font-black bg-emerald-950/50 border border-emerald-900 px-4 py-1 rounded" id="modal-purse">₹0.00 Cr</span></div>
+                    <div class="flex flex-col text-right"><span class="text-[8px] text-slate-500 uppercase font-bold">RTM Inventory</span><span class="text-sky-400 font-mono text-lg font-black bg-sky-950/50 border border-sky-900 px-4 py-1 rounded" id="modal-rtms">0/3 RTMs</span></div>
+                    <div class="flex flex-col text-right"><span class="text-[8px] text-slate-500 uppercase font-bold">OS Limit</span><span class="text-amber-400 font-mono text-lg font-black bg-amber-950/50 border border-amber-900 px-4 py-1 rounded" id="modal-os">0/3 Max</span></div>
+                    <div class="flex flex-col text-right"><span class="text-[8px] text-slate-500 uppercase font-bold">Points (Top 7)</span><span class="text-purple-400 font-mono text-lg font-black bg-purple-950/50 border border-purple-900 px-4 py-1 rounded" id="modal-points">⭐ 0</span></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-12 gap-8 flex-grow overflow-hidden">
+                <div class="col-span-5 flex flex-col h-full overflow-hidden border-r border-slate-800 pr-6">
+                    <div class="panel-header text-emerald-500 flex justify-between">
+                        <span>Mandatory Top 7 Mission Control</span>
+                        <span class="text-slate-500 font-mono">Market Pool</span>
+                    </div>
+                    <div id="modal-targets" class="overflow-y-auto custom-scroll flex-grow pr-2"></div>
+                </div>
+
+                <div class="col-span-7 flex flex-col h-full overflow-hidden">
+                    <div class="shrink-0 mb-6">
+                        <div class="panel-header text-sky-400">RTM Eligible Players</div>
+                        <div id="modal-rtm-list" class="grid grid-cols-3 gap-3 overflow-y-auto max-h-48 pr-2 custom-scroll"></div>
+                    </div>
+                    <div class="flex flex-col flex-grow overflow-hidden border-t border-slate-800 pt-4">
+                        <div class="panel-header text-slate-500 flex justify-between">
+                            <span>Current Squad</span>
+                            <span id="modal-slots" class="text-slate-400 font-mono">0/14 Slots</span>
+                        </div>
+                        <div id="modal-squad" class="bg-slate-950/50 rounded-xl border border-slate-800 p-4 overflow-y-auto custom-scroll text-sm flex-grow shadow-inner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const socket = io('http://localhost:4000');
+        let myTeam = "";
+        let globalState = null;
+        let playerDB = {}; 
+
+        const ROSTER_RULES = { 'BAT': 3, 'BOWL': 2, 'WK': 1, 'AR': 1 };
+        const MAX_TOP_7_OS = 3;
+
+        function norm(name) { return (name || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+
+        function startAuction() {
+            myTeam = document.getElementById('s-team').value;
+            socket.emit('start_auction', { 
+                my_team: myTeam, 
+                budget: parseFloat(document.getElementById('s-budget').value) || 100.0, 
+                squad_size: parseInt(document.getElementById('s-size').value) || 14, 
+                max_os: parseInt(document.getElementById('s-os').value) || 4,
+                max_rtms: parseInt(document.getElementById('s-rtm').value) || 3
+            });
+        }
+
+        function endAuction() { if(confirm("ABORT SESSION AND WIPE MEMORY?")) socket.emit('end_auction'); }
+        socket.on('auction_ended', () => location.reload());
+
+        function getExpectedPrice(points, baseCost) {
+            let p = points || 0;
+            let b = parseFloat(baseCost) || 0.5;
+            let exp = 0.5;
+            if (p >= 95) exp = 16.0; else if (p >= 90) exp = 10.0; else if (p >= 85) exp = 6.5; else if (p >= 80) exp = 3.5; else if (p >= 75) exp = 1.5;
+            return Math.max(exp, b);
+        }
+
+        function runLocalAnalyst() {
+            const playerName = document.getElementById('analyst-input').value.trim();
+            if (!playerName || !globalState) return;
+            
+            let pData = null, matchedName = playerName;
+            for (let name in playerDB) { 
+                if (norm(name).includes(norm(playerName))) { 
+                    pData = playerDB[name]; matchedName = pData.display_name || name; break; 
+                } 
+            }
+            if (!pData) { alert("Player not found in market database."); return; }
+
+            const myData = globalState.teams[myTeam];
+            const mySlotsLeft = globalState.user_settings.target_squad_size - myData.players_bought;
+            if (mySlotsLeft <= 0) { alert("Your roster is full."); return; }
+
+            const myAbsoluteMax = myData.budget_remaining - ((mySlotsLeft - 1) * 0.5);
+            let maxRivalBid = 0; let teamsNeedingRole = 0;
+            const role = pData.role || 'BAT';
+            const basePrice = pData.cost || 0.5;
+
+            for (let t in globalState.teams) {
+                if (t === myTeam) continue;
+                let rival = globalState.teams[t];
+                let rivalSlots = globalState.user_settings.target_squad_size - rival.players_bought;
+                if (rivalSlots <= 0) continue;
+
+                let rTop7 = calculateTop7Score(rival.squad);
+                let needed = ROSTER_RULES[role] - (rTop7.counts[role] || 0);
+                let rOsLeft = globalState.user_settings.max_overseas - rival.overseas_bought;
+
+                if (pData.is_os && rOsLeft <= 0) needed = 0;
+                if (needed > 0 || rivalSlots > 7) { 
+                    teamsNeedingRole++;
+                    let rivalLiquidity = rival.budget_remaining - ((rivalSlots - 1) * 0.5);
+                    if (rivalLiquidity > maxRivalBid) maxRivalBid = rivalLiquidity;
+                }
+            }
+
+            let backupPoints = 70.0;
+            let scarcityGap = Math.max(0, (pData.points || 0) - backupPoints);
+            let trueValuation = Math.pow(Math.max(0, (pData.points || 0) - 65) / 35, 2.5) * 18.0; 
+            if (trueValuation < basePrice) trueValuation = basePrice;
+
+            let demandMultiplier = 1.0 + (scarcityGap * 0.08); 
+            if (teamsNeedingRole > 5) demandMultiplier += 0.25; 
+
+            trueValuation = trueValuation * demandMultiplier;
+            let recommendedMax = Math.min(trueValuation, maxRivalBid + 0.5, myAbsoluteMax);
+            
+            if (teamsNeedingRole === 0 || maxRivalBid < 0.5) recommendedMax = 0.5;
+            if (recommendedMax < basePrice) recommendedMax = basePrice;
+
+            let verdict = "STANDARD MARKET VALUE"; let colorClass = "bg-slate-900/50 text-slate-400";
+            let reason = `Intrinsic Value: ₹${trueValuation.toFixed(1)}Cr. Drop-off to next available backup is ${scarcityGap.toFixed(1)} pts.`;
+
+            let myTop7 = calculateTop7Score(myData.squad);
+            let myNeed = ROSTER_RULES[role] - (myTop7.counts[role] || 0);
+
+            if (pData.is_os && (globalState.user_settings.max_overseas - myData.overseas_bought) <= 0) {
+                recommendedMax = 0; verdict = "ILLEGAL PURCHASE"; colorClass = "bg-red-900/50 text-red-400"; reason = "You have exhausted your Overseas quota.";
+            } else if (myNeed <= 0) {
+                recommendedMax = Math.min(basePrice + 1.0, myAbsoluteMax); verdict = "BENCH DEPTH"; colorClass = "bg-slate-900/50 text-slate-400"; reason = `Your Top 7 ${role} quota is full. Acquire strictly for bench depth near Base Price.`;
+            } else if (teamsNeedingRole === 0) {
+                recommendedMax = Math.min(basePrice + 0.5, myAbsoluteMax); verdict = "UNCONTESTED ACQUISITION"; colorClass = "bg-emerald-900/50 text-emerald-400"; reason = "No rivals require this Role/Origin profile. Acquire near Base Price.";
+            } else if (maxRivalBid < trueValuation && maxRivalBid < myAbsoluteMax) {
+                verdict = "RIVALS ILLIQUID (BULLY MARKET)"; colorClass = "bg-purple-900/50 text-purple-400"; reason = `The richest rival caps out at ₹${maxRivalBid.toFixed(1)}Cr. Outbid them safely.`;
+            } else if (scarcityGap > 6) {
+                verdict = "SCARCE ASSET (PREMIUM ALLOWED)"; colorClass = "bg-amber-900/50 text-amber-400"; reason = `Massive ${scarcityGap.toFixed(1)} pt gap to next backup. Overpaying is justified.`;
+            } else if (recommendedMax >= myAbsoluteMax) {
+                verdict = "CAPITAL EXHAUSTION WARNING"; colorClass = "bg-red-900/50 text-red-400"; reason = "Bidding to this limit triggers a Purse Breach.";
+            }
+
+            document.getElementById('analyst-report').classList.remove('hidden');
+            document.getElementById('ar-name').innerText = `${matchedName} (⭐${(pData.points || 0).toFixed(1)})`;
+            const vSpan = document.getElementById('ar-verdict'); vSpan.innerText = verdict; vSpan.className = `text-[9px] font-black px-2 py-1 rounded tracking-wider ${colorClass} uppercase`;
+            document.getElementById('ar-price').innerText = recommendedMax.toFixed(2); document.getElementById('ar-reason').innerText = reason;
+        }
+
+        // FORCE LIVE DATABASE INSTEAD OF JSON GHOSTS
+        function calculateTop7Score(squad) {
+            let counts = { 'BAT': 0, 'BOWL': 0, 'WK': 0, 'AR': 0 };
+            let osCount = 0; let top7Points = 0;
+            
+            let enrichedSquad = [...squad].map(p => {
+                let dbRef = playerDB[norm(p.name)];
+                return {
+                    ...p,
+                    points: dbRef ? (dbRef.points || 0) : (p.points || 0),
+                    role: dbRef ? (dbRef.role || 'BAT') : (p.role || 'BAT'),
+                    is_os: dbRef ? !!dbRef.is_os : !!p.is_os
+                };
+            }).sort((a,b) => b.points - a.points);
+            
+            for (let p of enrichedSquad) {
+                let r = (p.role || 'BAT').toUpperCase();
+                if(r.includes('BAT')) r = 'BAT'; else if(r.includes('BOWL')) r = 'BOWL'; else if(r.includes('WK')) r = 'WK'; else if(r.includes('AR')) r = 'AR'; else r = 'BAT';
+                if (counts[r] < ROSTER_RULES[r]) {
+                    if (p.is_os && osCount >= MAX_TOP_7_OS) continue; 
+                    counts[r]++; if (p.is_os) osCount++; top7Points += p.points;
+                }
+            }
+            return { points: top7Points, counts: counts };
+        }
+
+        function generateMarketTargetsHTML(teamName) {
+            if (!globalState || !globalState.teams || !globalState.teams[teamName] || Object.keys(playerDB).length === 0) return '';
+            const data = globalState.teams[teamName];
+            let sold = new Set();
+            for (let t in globalState.teams) globalState.teams[t].squad.forEach(p => sold.add(norm(p.name)));
+
+            let teamRTMs = new Set((data.rtm_cards || []).map(norm));
+            let rtmsLeft = globalState.user_settings.max_rtms - (data.rtms_used || 0);
+
+            let currentStatus = calculateTop7Score(data.squad);
+            let needed = { 'BAT': ROSTER_RULES['BAT'] - currentStatus.counts['BAT'], 'BOWL': ROSTER_RULES['BOWL'] - currentStatus.counts['BOWL'], 'WK': ROSTER_RULES['WK'] - currentStatus.counts['WK'], 'AR': ROSTER_RULES['AR'] - currentStatus.counts['AR'] };
+            let osLeft = globalState.user_settings.max_overseas - data.overseas_bought;
+            let workingPurse = data.budget_remaining;
+
+            let available = [];
+            for (let p in playerDB) {
+                if (!sold.has(norm(p))) {
+                    let player = { name: p, ...playerDB[p] };
+                    if (teamRTMs.has(norm(p)) && rtmsLeft > 0) player.target_score = (player.points || 0) + 100;
+                    else player.target_score = player.points || 0;
+                    available.push(player);
+                }
+            }
+            available.sort((a,b) => b.target_score - a.target_score);
+
+            let finalTargets = { 'BAT': [], 'BOWL': [], 'WK': [], 'AR': [] };
+
+            for (let i = 0; i < available.length; i++) {
+                if (needed['BAT']<=0 && needed['BOWL']<=0 && needed['WK']<=0 && needed['AR']<=0) break;
+                let p = available[i];
+                let r = (p.role || 'BAT').toUpperCase();
+                if(r.includes('BAT')) r = 'BAT'; else if(r.includes('BOWL')) r = 'BOWL'; else if(r.includes('WK')) r = 'WK'; else if(r.includes('AR')) r = 'AR'; else r = 'BAT';
+
+                let isOS = !!p.is_os; 
+                let expPrice = getExpectedPrice(p.points, p.cost); 
+
+                if (needed[r] > 0 && !(isOS && osLeft <= 0)) {
+                    let totalNeeded = needed['BAT'] + needed['BOWL'] + needed['WK'] + needed['AR'];
+                    if (workingPurse - expPrice >= (totalNeeded - 1) * 0.5) {
+                        p.exp_price = expPrice;
+                        finalTargets[r].push(p);
+                        needed[r]--; workingPurse -= expPrice;
+                        if (isOS) osLeft--;
+                    }
+                }
+            }
+
+            let html = '';
+            for (let role in finalTargets) {
+                if (finalTargets[role].length === 0) continue;
+                html += `<div class="mb-5"><div class="flex items-center gap-2 mb-2"><div class="h-4 w-1 bg-emerald-500 rounded-full"></div><h4 class="text-[10px] font-black text-slate-400 uppercase tracking-widest">SLOT: ${role} (${finalTargets[role].length} REQUIRED)</h4></div>`;
+                finalTargets[role].forEach(t => {
+                    let isOS = !!t.is_os; let isLegacy = !!t.is_legacy;
+                    let osBadge = isOS ? `<span class="text-[8px] text-amber-500 font-black tracking-widest uppercase">✈️ OS</span>` : `<span class="text-[8px] text-slate-500 font-black tracking-widest uppercase">DOMESTIC</span>`;
+                    let legacyBadge = isLegacy ? `<span class="text-[8px] text-purple-400 font-black tracking-widest uppercase ml-1">LEGACY</span>` : '';
+                    let displayRole = (t.role || 'BAT').toUpperCase();
+                    
+                    html += `
+                        <div class="bg-slate-900 border border-slate-800 p-3 rounded-lg mb-2 hover:border-emerald-500/50 transition-colors flex justify-between items-center group">
+                            <div>
+                                <div class="font-black text-xs text-white group-hover:text-emerald-400 transition-colors">${t.display_name || t.name}</div>
+                                <div class="flex gap-2 mt-1 mb-1 items-center">${osBadge}<span class="text-[8px] font-black tracking-widest uppercase text-slate-500">${displayRole}</span>${legacyBadge}</div>
+                                <div class="text-[9px] text-slate-500 font-mono mt-0.5">Est: ₹${(t.exp_price || 0.5).toFixed(1)}Cr <span class="text-slate-700">(Base: ₹${(t.cost || 0.5).toFixed(1)}Cr)</span></div>
+                            </div>
+                            <div class="text-right"><div class="text-emerald-400 font-black text-xs">⭐ ${(t.points || 0).toFixed(1)}</div></div>
+                        </div>`;
+                });
+                html += `</div>`;
+            }
+            return html || `<div class="flex flex-col items-center justify-center h-48 border-2 border-dashed border-emerald-900/50 rounded-xl bg-emerald-900/5"><span class="text-3xl mb-2">✅</span><span class="text-emerald-500 font-black text-xs uppercase tracking-widest">Top 7 Secured</span></div>`;
+        }
+
+        function generateRTMHTML(teamName) {
+            if (!globalState || !globalState.teams || !globalState.teams[teamName] || Object.keys(playerDB).length === 0) return '';
+            const data = globalState.teams[teamName];
+            
+            let soldMap = {};
+            for (let t in globalState.teams) globalState.teams[t].squad.forEach(p => soldMap[norm(p.name)] = t);
+
+            let teamRTMs = new Set((data.rtm_cards || []).map(norm));
+            let rtmsLeft = globalState.user_settings.max_rtms - (data.rtms_used || 0);
+
+            let rtmPlayers = [];
+            for (let p in playerDB) { if (teamRTMs.has(norm(p))) rtmPlayers.push({ name: p, ...playerDB[p] }); }
+            rtmPlayers.sort((a,b) => (b.points || 0) - (a.points || 0));
+
+            if (rtmPlayers.length === 0) return `<div class="col-span-3 text-center p-4 bg-slate-900 border border-slate-800 rounded-lg text-[10px] font-bold text-slate-500 uppercase tracking-widest">No RTM Targets Available</div>`;
+
+            let html = '';
+            rtmPlayers.forEach((t) => {
+                let n = norm(t.name); let isSold = soldMap[n]; let boughtByMe = isSold === teamName;
+                
+                let statusText = "RTM ELIGIBLE"; let pulseClass = rtmsLeft > 0 ? "animate-pulse text-sky-400 bg-sky-900/30" : "opacity-50 grayscale text-slate-400 bg-slate-800"; let cardStyle = "bg-slate-900 border-sky-900/50";
+                let priorityText = "STRATEGIC VALUE"; if (t.points >= 90) priorityText = "MARQUEE ASSET"; else if (t.points >= 85) priorityText = "CORE PLAYER";
+                
+                if (isSold) {
+                    pulseClass = ""; 
+                    if (boughtByMe) { statusText = "ACQUIRED"; cardStyle = "bg-emerald-900/20 border-emerald-900/50 opacity-80"; pulseClass = "text-emerald-400 bg-emerald-900/50"; } 
+                    else { statusText = "UNAVAILABLE"; cardStyle = "bg-red-900/10 border-red-900/30 opacity-40 grayscale"; pulseClass = "text-red-400 bg-red-900/30"; }
+                } else if (rtmsLeft <= 0) { statusText = "OUT OF RTMS"; cardStyle = "bg-slate-900 border-slate-800 opacity-50"; }
+                
+                let isOS = !!t.is_os; let isLegacy = !!t.is_legacy;
+                let osBadge = isOS ? `<span class="text-[8px] text-amber-500 font-black tracking-widest uppercase">✈️ OS</span>` : `<span class="text-[8px] text-slate-500 font-black tracking-widest uppercase">DOMESTIC</span>`;
+                let legacyBadge = isLegacy ? `<span class="text-[8px] text-purple-400 font-black tracking-widest uppercase ml-1">LEGACY</span>` : '';
+                
+                html += `
+                    <div class="border p-3 rounded-xl relative overflow-hidden group transition-all ${cardStyle}">
+                        <div class="absolute top-0 right-0 px-2 py-1 text-[8px] font-black rounded-bl-lg ${pulseClass}">${statusText}</div>
+                        <div class="text-[8px] text-slate-500 font-black uppercase tracking-widest mb-1 mt-1">${priorityText}</div>
+                        <div class="font-black text-sm text-white truncate group-hover:text-sky-400 transition-colors">${t.display_name || t.name}</div>
+                        <div class="flex gap-2 mt-1 mb-2 items-center">${osBadge}<span class="text-[8px] font-black tracking-widest uppercase text-slate-500">${(t.role || 'BAT').toUpperCase()}</span>${legacyBadge}</div>
+                        <div class="flex justify-between items-end border-t border-slate-800 pt-2"><span class="text-[9px] text-emerald-500 font-mono">Base: ₹${(t.cost || 0.5).toFixed(1)}Cr</span><span class="text-amber-500 font-black text-xs">⭐ ${(t.points || 0).toFixed(1)}</span></div>
+                    </div>`;
+            });
+            return html;
+        }
+
+        function runLocalIntel() {
+            if (!globalState) return;
+            const targetSize = globalState.user_settings.target_squad_size;
+            let metrics = []; let tBudget = 0; let tSlots = 0;
+            for (let team in globalState.teams) {
+                let d = globalState.teams[team]; let slots = targetSize - d.players_bought;
+                if (slots > 0) { tBudget += d.budget_remaining; tSlots += slots; metrics.push({ team: team, power: d.budget_remaining / slots, purse: d.budget_remaining }); }
+            }
+            if (tSlots === 0) return;
+            let avgPower = tBudget / tSlots;
+            metrics.sort((a,b) => b.power - a.power);
+            document.getElementById('ai-rich').innerHTML = metrics.slice(0,3).map(m => `<div class="bg-emerald-900/20 border border-emerald-900 p-2 rounded flex justify-between shadow-inner"><span>${m.team}</span><span class="text-emerald-400 font-mono">₹${m.purse.toFixed(1)}Cr</span></div>`).join('') || '<div class="text-slate-500 text-xs italic">Market Balanced</div>';
+            document.getElementById('ai-broke').innerHTML = metrics.filter(m => m.power < avgPower * 0.75).slice(-3).map(m => `<div class="bg-red-900/20 border border-red-900 p-2 rounded flex justify-between shadow-inner"><span>${m.team}</span><span class="text-red-400 font-mono">₹${m.purse.toFixed(1)}Cr</span></div>`).join('') || '<div class="text-slate-500 text-xs italic">Market Balanced</div>';
+        }
+
+        function renderUI() {
+            if (!globalState || Object.keys(playerDB).length === 0) return;
+            myTeam = globalState.user_settings.my_team;
+            
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('dashboard-screen').classList.remove('hidden');
+            document.getElementById('reset-btn').classList.remove('hidden');
+            
+            runLocalIntel(); 
+            const grid = document.getElementById('rivals-grid'); const hq = document.getElementById('my-hq');
+            grid.innerHTML = ''; hq.innerHTML = '';
+
+            let soldMap = {};
+            for (let t in globalState.teams) globalState.teams[t].squad.forEach(p => soldMap[norm(p.name)] = t);
+
+            let leaderboardData = [];
+            for (let [name, data] of Object.entries(globalState.teams)) {
+                let top7 = calculateTop7Score(data.squad);
+                leaderboardData.push({ name: name, data: data, top7points: top7.points, counts: top7.counts });
+            }
+            leaderboardData.sort((a, b) => b.top7points - a.top7points);
+
+            leaderboardData.forEach((team) => {
+                const name = team.name; const data = team.data;
+                const perc = (data.budget_remaining / globalState.user_settings.global_budget) * 100;
+                const isCompliant = team.counts['BAT']===3 && team.counts['BOWL']===2 && team.counts['WK']===1 && team.counts['AR']===1;
+                
+                let rtmHtml = '<div class="flex gap-1 flex-wrap mt-2 pt-2 border-t border-slate-700/50">';
+                if (data.rtm_cards && data.rtm_cards.length > 0) {
+                    data.rtm_cards.forEach(rtm => {
+                        let n = norm(rtm); let dName = playerDB[n] ? (playerDB[n].display_name || rtm) : rtm;
+                        let shortName = dName.split(' ').pop(); let style = 'bg-sky-900/50 text-sky-400 border border-sky-800'; 
+                        
+                        if (soldMap[n]) {
+                            if (soldMap[n] === name) style = 'bg-emerald-900/50 text-emerald-500 border border-emerald-800 opacity-50'; 
+                            else style = 'bg-red-900/50 text-red-500 border border-red-800 line-through opacity-50'; 
+                        }
+                        rtmHtml += `<span class="px-1.5 py-0.5 rounded text-[8px] font-bold ${style}" title="${dName}">${shortName}</span>`;
+                    });
+                } else { rtmHtml += `<span class="text-[8px] text-slate-600 italic">No RTMs Available</span>`; }
+                rtmHtml += '</div>';
+
+                const html = `
+                    <div class="flex justify-between items-start mb-2">
+                        <div><h4 class="text-sm font-black text-white">${name}</h4></div>
+                        <div class="text-right"><div class="text-emerald-400 font-mono text-xs font-bold">₹${data.budget_remaining.toFixed(1)}Cr</div><div class="text-[10px] text-amber-500 font-bold mono">⭐ ${team.top7points.toFixed(1)} PTS</div></div>
+                    </div>
+                    <div class="w-full bg-slate-900 h-1.5 mb-2 rounded-full shadow-inner"><div class="bg-blue-500 h-full rounded-full" style="width:${perc}%"></div></div>
+                    <div class="flex justify-between text-[8px] font-bold uppercase tracking-wider">
+                        <span class="text-slate-400">${data.players_bought}/${globalState.user_settings.target_squad_size} SQD <span class="text-sky-500 ml-1 border-l border-slate-700 pl-1">RTM: ${data.rtms_used || 0}/${globalState.user_settings.max_rtms}</span></span>
+                        <span class="${isCompliant ? 'text-emerald-500' : 'text-amber-500'}">TOP 7: ${team.counts['BAT']}B | ${team.counts['BOWL']}BW | ${team.counts['WK']}W | ${team.counts['AR']}A</span>
+                    </div>
+                    ${rtmHtml}
+                `;
+
+                if(name === myTeam) {
+                    hq.innerHTML = `<div class="panel-header text-emerald-500">My Franchise HQ</div><div onclick="openModal('${name}')" class="glass p-4 rounded-xl flex flex-col hover:border-emerald-500 cursor-pointer transition-all border-l-4 border-l-emerald-500 hover:-translate-y-1 bg-emerald-900/10">${html.replace('bg-blue-500', 'bg-emerald-500')}</div>`;
+                    document.getElementById('strategy-list').innerHTML = generateMarketTargetsHTML(myTeam);
+                } else {
+                    grid.innerHTML += `<div onclick="openModal('${name}')" class="glass p-4 rounded-xl flex flex-col hover:border-sky-500 cursor-pointer transition-all border-l-4 border-l-slate-700 hover:-translate-y-1">${html}</div>`;
+                }
+            });
+        }
+
+        socket.on('auction_update', (state) => { globalState = state; renderUI(); });
+        socket.on('database_update', (db) => { playerDB = db; renderUI(); });
+
+        function submitBid() {
+            const p = document.getElementById('b-player').value.trim(); const t = document.getElementById('b-team').value; const pr = document.getElementById('b-price').value;
+            if(p && pr) socket.emit('register_bid', { player: p, team: t, price: pr });
+            document.getElementById('b-player').value = ''; document.getElementById('b-price').value = '';
+        }
+
+        function openModal(teamName) {
+            const data = globalState.teams[teamName];
+            document.getElementById('modal-title').innerText = teamName;
+            document.getElementById('modal-purse').innerText = `₹${data.budget_remaining.toFixed(2)} Cr`;
+            document.getElementById('modal-points').innerText = `⭐ ${calculateTop7Score(data.squad).points.toFixed(1)}`;
+            document.getElementById('modal-slots').innerText = `${data.players_bought}/${globalState.user_settings.target_squad_size} Slots Built`;
+            document.getElementById('modal-rtms').innerText = `${globalState.user_settings.max_rtms - (data.rtms_used || 0)}/${globalState.user_settings.max_rtms} Left`;
+            
+            let osCount = 0; data.squad.forEach(p => { 
+                let dbRef = playerDB[norm(p.name)];
+                if(dbRef ? !!dbRef.is_os : !!p.is_os) osCount++; 
+            });
+            document.getElementById('modal-os').innerText = `${osCount}/${MAX_TOP_7_OS} Max`;
+            
+            document.getElementById('modal-squad').innerHTML = data.squad.map(p => {
+                let dbRef = playerDB[norm(p.name)];
+                let dName = dbRef ? dbRef.display_name : p.name;
+                let pRole = (dbRef ? dbRef.role : p.role) || 'BAT';
+                let isOS = dbRef ? !!dbRef.is_os : !!p.is_os; 
+                let isLegacy = dbRef ? !!dbRef.is_legacy : false;
+                let pPoints = dbRef ? (dbRef.points || 0) : (p.points || 0);
+                
+                let osBadge = isOS ? `<span class="text-[8px] text-amber-500 font-black tracking-widest uppercase">✈️ OS</span>` : `<span class="text-[8px] text-slate-500 font-black tracking-widest uppercase">DOMESTIC</span>`;
+                let legacyBadge = isLegacy ? `<span class="text-[8px] text-purple-400 font-black tracking-widest uppercase ml-1">LEGACY</span>` : '';
+
+                return `
+                <div class="flex justify-between border-b border-slate-800 py-3 group">
+                    <div>
+                        <span class="font-black text-white text-sm group-hover:text-emerald-400 transition-colors">${dName}</span> 
+                        <div class="flex gap-2 mt-1 items-center">
+                            ${osBadge}
+                            <span class="text-[8px] font-black tracking-widest uppercase text-slate-500">${pRole.toUpperCase()}</span>
+                            ${legacyBadge}
+                            ${p.is_rtm ? '<span class="text-[8px] text-sky-400 font-black tracking-widest ml-1">🔄 RTM USED</span>' : ''}
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end text-right">
+                        <span class="text-amber-500 font-black text-sm">⭐ ${pPoints.toFixed(1)}</span>
+                        <span class="text-emerald-500 font-mono text-[10px]">Bought For: ₹${(p.price || 0).toFixed(2)} Cr</span>
+                    </div>
+                </div>`}).join('') || '<div class="text-slate-500 text-xs italic text-center mt-4">Franchise has not executed any purchases.</div>';
+
+            document.getElementById('modal-targets').innerHTML = generateMarketTargetsHTML(teamName);
+            document.getElementById('modal-rtm-list').innerHTML = generateRTMHTML(teamName);
+            document.getElementById('team-modal').classList.remove('hidden');
+        }
+
+        function closeModal() { document.getElementById('team-modal').classList.add('hidden'); }
+    </script>
+</body>
+</html>
