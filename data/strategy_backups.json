@@ -1,0 +1,240 @@
+{
+    "Virat Kohli": [
+        {
+            "Backup_Name": "Shikhar Dhawan",
+            "Points": 75.0,
+            "Price": 5.0
+        },
+        {
+            "Backup_Name": "Suresh Raina",
+            "Points": 75.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Sai Sudharsan",
+            "Points": 75.0,
+            "Price": 2.0
+        }
+    ],
+    "Rohit Sharma": [
+        {
+            "Backup_Name": "Shikhar Dhawan",
+            "Points": 75.0,
+            "Price": 5.0
+        },
+        {
+            "Backup_Name": "Suresh Raina",
+            "Points": 75.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Sai Sudharsan",
+            "Points": 75.0,
+            "Price": 2.0
+        }
+    ],
+    "Suryakumar Yadav": [
+        {
+            "Backup_Name": "Shikhar Dhawan",
+            "Points": 75.0,
+            "Price": 5.0
+        },
+        {
+            "Backup_Name": "Suresh Raina",
+            "Points": 75.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Sai Sudharsan",
+            "Points": 75.0,
+            "Price": 2.0
+        }
+    ],
+    "Travis Head": [
+        {
+            "Backup_Name": "AB de Villiers",
+            "Points": 75.0,
+            "Price": 5.0
+        },
+        {
+            "Backup_Name": "Brendon McCullum",
+            "Points": 75.0,
+            "Price": 3.0
+        },
+        {
+            "Backup_Name": "Nicholas Pooran",
+            "Points": 75.0,
+            "Price": 3.0
+        }
+    ],
+    "Shubman Gill": [
+        {
+            "Backup_Name": "Shikhar Dhawan",
+            "Points": 75.0,
+            "Price": 5.0
+        },
+        {
+            "Backup_Name": "Suresh Raina",
+            "Points": 75.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Sai Sudharsan",
+            "Points": 75.0,
+            "Price": 2.0
+        }
+    ],
+    "Rashid Khan": [
+        {
+            "Backup_Name": "Trent Boult",
+            "Points": 92.0,
+            "Price": 3.0
+        },
+        {
+            "Backup_Name": "Imran Tahir",
+            "Points": 75.0,
+            "Price": 3.0
+        },
+        {
+            "Backup_Name": "Josh Hazlewood",
+            "Points": 75.0,
+            "Price": 3.0
+        }
+    ],
+    "Jasprit Bumrah": [
+        {
+            "Backup_Name": "Ravichandran Ashwin",
+            "Points": 75.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Prasidh Krishna",
+            "Points": 75.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Arshdeep Singh",
+            "Points": 75.0,
+            "Price": 2.0
+        }
+    ],
+    "Mohammed Siraj": [
+        {
+            "Backup_Name": "Ravichandran Ashwin",
+            "Points": 75.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Prasidh Krishna",
+            "Points": 75.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Arshdeep Singh",
+            "Points": 75.0,
+            "Price": 2.0
+        }
+    ],
+    "Hardik Pandya": [
+        {
+            "Backup_Name": "Krunal Pandya",
+            "Points": 75.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Axar Patel",
+            "Points": 62.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Shardul Thakur",
+            "Points": 62.0,
+            "Price": 2.0
+        }
+    ],
+    "Sunil Narine": [
+        {
+            "Backup_Name": "Ben Stokes",
+            "Points": 75.0,
+            "Price": 5.0
+        },
+        {
+            "Backup_Name": "Dwayne Bravo",
+            "Points": 75.0,
+            "Price": 5.0
+        },
+        {
+            "Backup_Name": "Andre Russell",
+            "Points": 75.0,
+            "Price": 5.0
+        }
+    ],
+    "Washington Sundar": [
+        {
+            "Backup_Name": "Krunal Pandya",
+            "Points": 75.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Axar Patel",
+            "Points": 62.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Shardul Thakur",
+            "Points": 62.0,
+            "Price": 2.0
+        }
+    ],
+    "Shivam Dube": [
+        {
+            "Backup_Name": "Krunal Pandya",
+            "Points": 75.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Axar Patel",
+            "Points": 62.0,
+            "Price": 2.0
+        },
+        {
+            "Backup_Name": "Shardul Thakur",
+            "Points": 62.0,
+            "Price": 2.0
+        }
+    ],
+    "MS Dhoni": [
+        {
+            "Backup_Name": "KL Rahul",
+            "Points": 75.0,
+            "Price": 5.0
+        },
+        {
+            "Backup_Name": "Rishabh Pant",
+            "Points": 75.0,
+            "Price": 5.0
+        },
+        {
+            "Backup_Name": "Sanju Samson",
+            "Points": 75.0,
+            "Price": 2.0
+        }
+    ],
+    "Heinrich Klaasen": [
+        {
+            "Backup_Name": "Josh Inglis",
+            "Points": 75.0,
+            "Price": 3.0
+        },
+        {
+            "Backup_Name": "Phil Salt",
+            "Points": 75.0,
+            "Price": 3.0
+        },
+        {
+            "Backup_Name": "Quinton de Kock",
+            "Points": 75.0,
+            "Price": 3.0
+        }
+    ]
+}

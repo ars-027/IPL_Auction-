@@ -1,0 +1,176 @@
+{
+    "user_settings": {
+        "my_team": "MI",
+        "target_squad_size": 14,
+        "max_overseas": 4,
+        "global_budget": 100,
+        "max_rtms": 3
+    },
+    "teams": {
+        "MI": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "hardikpandya",
+                "rohitsharma",
+                "jaspritbumrah"
+            ],
+            "squad": []
+        },
+        "CSK": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "shivamdube",
+                "noorahmad",
+                "msdhoni"
+            ],
+            "squad": []
+        },
+        "RCB": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "viratkohli",
+                "abdevilliers",
+                "joshhazlewood"
+            ],
+            "squad": []
+        },
+        "KKR": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "sunilnarine",
+                "andrerussell",
+                "varunchakravarthy"
+            ],
+            "squad": []
+        },
+        "SRH": {
+            "budget_remaining": 79,
+            "players_bought": 1,
+            "overseas_bought": 0,
+            "rtms_used": 1,
+            "rtm_cards": [
+                "travishead",
+                "heinrichklaasen",
+                "ishankishan"
+            ],
+            "squad": [
+                {
+                    "name": "travis head",
+                    "price": 21,
+                    "points": 75,
+                    "is_os": false,
+                    "role": "BAT",
+                    "is_rtm": true
+                }
+            ]
+        },
+        "DC": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "mitchellstarc",
+                "klrahul",
+                "philsalt"
+            ],
+            "squad": []
+        },
+        "RR": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "yashasvijaiswal",
+                "sanjusamson",
+                "dhruvjurel"
+            ],
+            "squad": []
+        },
+        "PBKS": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "marcusstoinis",
+                "shreyasiyer",
+                "arshdeepsingh"
+            ],
+            "squad": []
+        },
+        "GT": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "shubmangill",
+                "saisudharsan",
+                "rashidkhan"
+            ],
+            "squad": []
+        },
+        "LSG": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "nicholaspooran",
+                "devduttpadikkal",
+                "rishabhpant"
+            ],
+            "squad": []
+        },
+        "Deccan": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "andrewsymonds",
+                "shikhardhawan",
+                "adamgilchrist"
+            ],
+            "squad": []
+        },
+        "RPS": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "benstokes",
+                "imrantahir",
+                "ravichandranashwin"
+            ],
+            "squad": []
+        },
+        "GL": {
+            "budget_remaining": 100,
+            "players_bought": 0,
+            "overseas_bought": 0,
+            "rtms_used": 0,
+            "rtm_cards": [
+                "dwaynebravo",
+                "sureshraina",
+                "brendonmccullum"
+            ],
+            "squad": []
+        }
+    }
+}

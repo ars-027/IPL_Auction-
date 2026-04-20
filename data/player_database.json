@@ -1,0 +1,992 @@
+{
+    "hardikpandya": {
+        "display_name": "Hardik Pandya",
+        "points": 72.0,
+        "role": "AR",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "sunilnarine": {
+        "display_name": "Sunil Narine",
+        "points": 72.0,
+        "role": "AR",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "benstokes": {
+        "display_name": "Ben Stokes",
+        "points": 72.0,
+        "role": "AR",
+        "is_os": 1,
+        "is_legacy": 1,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "dwaynebravo": {
+        "display_name": "Dwayne Bravo",
+        "points": 75.1,
+        "role": "AR",
+        "is_os": 1,
+        "is_legacy": 1,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "andrerussell": {
+        "display_name": "Andre Russell",
+        "points": 65.7,
+        "role": "AR",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "krunalpandya": {
+        "display_name": "Krunal Pandya",
+        "points": 65.1,
+        "role": "AR",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "washingtonsundar": {
+        "display_name": "Washington Sundar",
+        "points": 65.1,
+        "role": "AR",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "marcusstoinis": {
+        "display_name": "Marcus Stoinis",
+        "points": 61.5,
+        "role": "AR",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "andrewsymonds": {
+        "display_name": "Andrew Symonds",
+        "points": 67.4,
+        "role": "AR",
+        "is_os": 1,
+        "is_legacy": 1,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "shivamdube": {
+        "display_name": "Shivam Dube",
+        "points": 65.1,
+        "role": "AR",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "marcojansen": {
+        "display_name": "Marco Jansen",
+        "points": 61.5,
+        "role": "AR",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "willjacks": {
+        "display_name": "Will Jacks",
+        "points": 61.5,
+        "role": "AR",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "mitchellsantner": {
+        "display_name": "Mitchell Santner",
+        "points": 61.5,
+        "role": "AR",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "axarpatel": {
+        "display_name": "Axar Patel",
+        "points": 62.0,
+        "role": "AR",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "shardulthakur": {
+        "display_name": "Shardul Thakur",
+        "points": 62.0,
+        "role": "AR",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "viratkohli": {
+        "display_name": "Virat Kohli",
+        "points": 75.1,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "rohitsharma": {
+        "display_name": "Rohit Sharma",
+        "points": 75.1,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "abdevilliers": {
+        "display_name": "AB de Villiers",
+        "points": 72.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 1,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "suryakumaryadav": {
+        "display_name": "Suryakumar Yadav",
+        "points": 68.8,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "travishead": {
+        "display_name": "Travis Head",
+        "points": 72.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "shubmangill": {
+        "display_name": "Shubman Gill",
+        "points": 68.8,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "shikhardhawan": {
+        "display_name": "Shikhar Dhawan",
+        "points": 75.1,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 1,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "sureshraina": {
+        "display_name": "Suresh Raina",
+        "points": 65.2,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 1,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "saisudharsan": {
+        "display_name": "Sai Sudharsan",
+        "points": 62.2,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "brendonmccullum": {
+        "display_name": "Brendon McCullum",
+        "points": 64.3,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 1,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "shreyasiyer": {
+        "display_name": "Shreyas Iyer",
+        "points": 65.7,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "nicholaspooran": {
+        "display_name": "Nicholas Pooran",
+        "points": 61.4,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "yashasvijaiswal": {
+        "display_name": "Yashasvi Jaiswal",
+        "points": 65.7,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "tilakvarma": {
+        "display_name": "Tilak Varma",
+        "points": 62.2,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "fafduplessis": {
+        "display_name": "Faf du Plessis",
+        "points": 61.4,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "ruturajgaikwad": {
+        "display_name": "Ruturaj Gaikwad",
+        "points": 62.2,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "devduttpadikkal": {
+        "display_name": "Devdutt Padikkal",
+        "points": 62.2,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "abhisheksharma": {
+        "display_name": "Abhishek Sharma",
+        "points": 62.2,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "rinkusingh": {
+        "display_name": "Rinku Singh",
+        "points": 62.2,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "mitchellmarsh": {
+        "display_name": "Mitchell Marsh",
+        "points": 61.4,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "rajatpatidar": {
+        "display_name": "Rajat Patidar",
+        "points": 62.2,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "tristanstubbs": {
+        "display_name": "Tristan Stubbs",
+        "points": 61.4,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "nehalwadhera": {
+        "display_name": "Nehal Wadhera",
+        "points": 62.2,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "josbuttler": {
+        "display_name": "Jos Buttler",
+        "points": 61.4,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "angkrishraghuvanshi": {
+        "display_name": "Angkrish Raghuvanshi",
+        "points": 62.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "manishpandey": {
+        "display_name": "Manish Pandey",
+        "points": 62.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "shashanksingh": {
+        "display_name": "Shashank Singh",
+        "points": 61.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "ayushbadoni": {
+        "display_name": "Ayush Badoni",
+        "points": 61.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "rovmanpowell": {
+        "display_name": "Rovman Powell",
+        "points": 61.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "glennmaxwell": {
+        "display_name": "Glenn Maxwell",
+        "points": 60.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "davidmiller": {
+        "display_name": "David Miller",
+        "points": 60.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "rahultripathi": {
+        "display_name": "Rahul Tripathi",
+        "points": 60.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "priyansharya": {
+        "display_name": "Priyansh Arya",
+        "points": 60.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "nitishkumarreddy": {
+        "display_name": "Nitish Kumar Reddy",
+        "points": 59.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "moeenali": {
+        "display_name": "Moeen Ali",
+        "points": 59.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "venkateshiyer": {
+        "display_name": "Venkatesh Iyer",
+        "points": 59.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "abishekporel": {
+        "display_name": "Abishek Porel",
+        "points": 59.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "ryanrickelton": {
+        "display_name": "Ryan Rickelton",
+        "points": 58.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "tomkohlercadmore": {
+        "display_name": "Tom Kohler-Cadmore",
+        "points": 58.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "lorcantucker": {
+        "display_name": "Lorcan Tucker",
+        "points": 58.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "wriddhimansaha": {
+        "display_name": "Wriddhiman Saha",
+        "points": 58.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "namandhir": {
+        "display_name": "Naman Dhir",
+        "points": 57.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "anujrawat": {
+        "display_name": "Anuj Rawat",
+        "points": 57.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "musheerkhan": {
+        "display_name": "Musheer Khan",
+        "points": 57.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "mahipallomror": {
+        "display_name": "Mahipal Lomror",
+        "points": 56.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "priyankpanchal": {
+        "display_name": "Priyank Panchal",
+        "points": 56.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "karimjanat": {
+        "display_name": "Karim Janat",
+        "points": 56.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "sherfanerutherford": {
+        "display_name": "Sherfane Rutherford",
+        "points": 56.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "bevonjacobs": {
+        "display_name": "Bevon Jacobs",
+        "points": 55.0,
+        "role": "BAT",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "ahaanpandya": {
+        "display_name": "Ahaan Pandya",
+        "points": 55.0,
+        "role": "BAT",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "rashidkhan": {
+        "display_name": "Rashid Khan",
+        "points": 72.0,
+        "role": "BOWL",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "imrantahir": {
+        "display_name": "Imran Tahir",
+        "points": 67.4,
+        "role": "BOWL",
+        "is_os": 1,
+        "is_legacy": 1,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "jaspritbumrah": {
+        "display_name": "Jasprit Bumrah",
+        "points": 68.8,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "ravichandranashwin": {
+        "display_name": "Ravichandran Ashwin",
+        "points": 66.9,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 1,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "prasidhkrishna": {
+        "display_name": "Prasidh Krishna",
+        "points": 63.8,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "joshhazlewood": {
+        "display_name": "Josh Hazlewood",
+        "points": 61.5,
+        "role": "BOWL",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "trentboult": {
+        "display_name": "Trent Boult",
+        "points": 61.5,
+        "role": "BOWL",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "arshdeepsingh": {
+        "display_name": "Arshdeep Singh",
+        "points": 63.8,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "mitchellstarc": {
+        "display_name": "Mitchell Starc",
+        "points": 61.5,
+        "role": "BOWL",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "mohammedsiraj": {
+        "display_name": "Mohammed Siraj",
+        "points": 63.8,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "noorahmad": {
+        "display_name": "Noor Ahmad",
+        "points": 61.5,
+        "role": "BOWL",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "yuzvendrachahal": {
+        "display_name": "Yuzvendra Chahal",
+        "points": 63.8,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "varunchakravarthy": {
+        "display_name": "Varun Chakravarthy",
+        "points": 63.8,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "khaleelahmed": {
+        "display_name": "Khaleel Ahmed",
+        "points": 63.8,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "kagisorabada": {
+        "display_name": "Kagiso Rabada",
+        "points": 61.5,
+        "role": "BOWL",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "tnatarajan": {
+        "display_name": "T Natarajan",
+        "points": 63.8,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "anrichnortje": {
+        "display_name": "Anrich Nortje",
+        "points": 61.5,
+        "role": "BOWL",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "kuldeepyadav": {
+        "display_name": "Kuldeep Yadav",
+        "points": 63.8,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "bhuvneshwarkumar": {
+        "display_name": "Bhuvneshwar Kumar",
+        "points": 63.8,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "deepakchahar": {
+        "display_name": "Deepak Chahar",
+        "points": 63.8,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "lockieferguson": {
+        "display_name": "Lockie Ferguson",
+        "points": 61.5,
+        "role": "BOWL",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "geraldcoetzee": {
+        "display_name": "Gerald Coetzee",
+        "points": 61.5,
+        "role": "BOWL",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "harshitrana": {
+        "display_name": "Harshit Rana",
+        "points": 62.0,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "tushardeshpande": {
+        "display_name": "Tushar Deshpande",
+        "points": 62.0,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "mohitsharma": {
+        "display_name": "Mohit Sharma",
+        "points": 61.0,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "aveshkhan": {
+        "display_name": "Avesh Khan",
+        "points": 61.0,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "vijaykumarvyshak": {
+        "display_name": "Vijaykumar Vyshak",
+        "points": 61.0,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "akashmadhwal": {
+        "display_name": "Akash Madhwal",
+        "points": 60.0,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "rahulchahar": {
+        "display_name": "Rahul Chahar",
+        "points": 60.0,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "jayantyadav": {
+        "display_name": "Jayant Yadav",
+        "points": 60.0,
+        "role": "BOWL",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "msdhoni": {
+        "display_name": "MS Dhoni",
+        "points": 75.1,
+        "role": "WK",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "klrahul": {
+        "display_name": "KL Rahul",
+        "points": 75.1,
+        "role": "WK",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "rishabhpant": {
+        "display_name": "Rishabh Pant",
+        "points": 68.8,
+        "role": "WK",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 5.0
+    },
+    "heinrichklaasen": {
+        "display_name": "Heinrich Klaasen",
+        "points": 64.0,
+        "role": "WK",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "sanjusamson": {
+        "display_name": "Sanju Samson",
+        "points": 64.6,
+        "role": "WK",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "ishankishan": {
+        "display_name": "Ishan Kishan",
+        "points": 64.6,
+        "role": "WK",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "joshinglis": {
+        "display_name": "Josh Inglis",
+        "points": 64.0,
+        "role": "WK",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "kumarkushagra": {
+        "display_name": "Kumar Kushagra",
+        "points": 65.1,
+        "role": "WK",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "philsalt": {
+        "display_name": "Phil Salt",
+        "points": 64.0,
+        "role": "WK",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "quintondekock": {
+        "display_name": "Quinton de Kock",
+        "points": 64.0,
+        "role": "WK",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "adamgilchrist": {
+        "display_name": "Adam Gilchrist",
+        "points": 67.1,
+        "role": "WK",
+        "is_os": 1,
+        "is_legacy": 1,
+        "is_rtm": 0,
+        "cost": 3.0
+    },
+    "prabhsimransingh": {
+        "display_name": "Prabhsimran Singh",
+        "points": 62.0,
+        "role": "WK",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "robinminz": {
+        "display_name": "Robin Minz",
+        "points": 62.0,
+        "role": "WK",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 1.0
+    },
+    "dhruvjurel": {
+        "display_name": "Dhruv Jurel",
+        "points": 61.0,
+        "role": "WK",
+        "is_os": 0,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 2.0
+    },
+    "rahmanullahgurbaz": {
+        "display_name": "Rahmanullah Gurbaz",
+        "points": 61.0,
+        "role": "WK",
+        "is_os": 1,
+        "is_legacy": 0,
+        "is_rtm": 0,
+        "cost": 3.0
+    }
+}
